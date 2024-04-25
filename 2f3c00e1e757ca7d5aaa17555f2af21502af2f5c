@@ -16,6 +16,24 @@
       "message": "Worked on shiba userdebug build",
       "revId": "2f3c00e1e757ca7d5aaa17555f2af21502af2f5c",
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0baf3b83_ab2ef554",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-04-25T16:06:22Z",
+      "side": 1,
+      "message": "bluejay too, all of it.",
+      "parentUuid": "40642493_fd199bab",
+      "revId": "2f3c00e1e757ca7d5aaa17555f2af21502af2f5c",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
     }
   ]
 }
