@@ -221,14 +221,23 @@ int main() {
                         read_buffer(18, 131072, "kioxia_12_ufs_err_history.dat");
                         break;
                       case 0x1AD: //SKhynix
-                        read_buffer(0, 4096, "hynix_00_ufs_err_history.dat");
-                        read_buffer(16, 131072, "skhynix_10_ufs_err_history.dat");
-                        read_buffer(17, 131072, "skhynix_11_ufs_err_history.dat");
-                        read_buffer(18, 131072, "skhynix_12_ufs_err_history.dat");
-                        read_buffer(19, 131072, "skhynix_13_ufs_err_history.dat");
+                        if (!strcmp(ufs_ver.c_str(), "0x0310")) {
+                            read_buffer(0, 4096, "skhynix_00_ufs_err_history.dat");
+                            read_buffer(16, 131072, "skhynix_10_ufs_err_history.dat");
+                            read_buffer(17, 131072, "skhynix_11_ufs_err_history.dat");
+                            read_buffer(18, 131072, "skhynix_12_ufs_err_history.dat");
+                            read_buffer(19, 131072, "skhynix_13_ufs_err_history.dat");
+                        } else {
+                            read_buffer(0, 4096, "skhynix_00_ufs_err_history.dat");
+                            read_buffer(16, 8388608, "skhynix_10_ufs_err_history.dat");
+                            read_buffer(17, 8388608, "skhynix_11_ufs_err_history.dat");
+                        }
                         break;
                       case 0x1CE: //SAMSUNG
-                        read_buffer(16, 8404992, "samsung_10_ufs_err_history.dat");
+                        if (!strcmp(ufs_ver.c_str(), "0x0310"))
+                            read_buffer(16, 8404992, "samsung_10_ufs_err_history.dat");
+                        else
+                            read_buffer(16, 12599296, "samsung_10_ufs_err_history.dat");
                         break;
                       default:
                         break;

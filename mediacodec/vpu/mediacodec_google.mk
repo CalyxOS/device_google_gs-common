@@ -7,10 +7,12 @@ PRODUCT_PACKAGES += \
 	libgc2_vdi_vpu \
 	libgc2_log \
 	libgc2_utils \
+	libgc2_dec \
 	libgc2_av1_dec \
 	libgc2_vp9_dec \
 	libgc2_hevc_dec \
 	libgc2_avc_dec \
+	libgc2_enc \
 	libgc2_av1_enc \
 	libgc2_hevc_enc \
 	libgc2_avc_enc \

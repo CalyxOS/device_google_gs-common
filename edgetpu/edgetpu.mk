@@ -19,10 +19,6 @@ PRODUCT_PACKAGES += \
 # TPU TFlite Delegate
 PRODUCT_PACKAGES += \
         libedgetpu_util
-# TPU DBA AIDL HAL service
-PRODUCT_PACKAGES += com.google.edgetpu.dba-service
-# TPU DBA C API library
-PRODUCT_PACKAGES += libedgetpu_dba.google
 # TPU Tachyon HAL service
 PRODUCT_PACKAGES += com.google.edgetpu.tachyon-service
 # TPU Tachyon C API library

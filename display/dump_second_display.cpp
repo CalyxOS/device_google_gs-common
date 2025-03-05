@@ -18,9 +18,9 @@
 int main() {
     dumpFileContent("DECON-1 counters /sys/class/drm/card0/device/decon1/counters", "/sys/class/drm/card0/device/decon1/counters");
     dumpFileContent("CRTC-1 event log", "/sys/kernel/debug/dri/0/crtc-1/event");
-    dumpFileContent("Secondary panel name", "/sys/devices/platform/exynos-drm/secondary-panel/panel_name");
-    dumpFileContent("Secondary panel extra info", "/sys/devices/platform/exynos-drm/secondary-panel/panel_extinfo");
-    dumpFileContent("Secondary panel power mode register", "/sys/devices/platform/exynos-drm/secondary-panel/power_mode");
+
+    dumpFileContent("Secondary panel name", "/sys/class/drm/card0/device/secondary-panel/panel_name");
+    dumpFileContent("Secondary panel extra info", "/sys/class/drm/card0/device/secondary-panel/panel_extinfo");
+    dumpFileContent("Secondary panel power mode register", "/sys/class/drm/card0/device/secondary-panel/power_mode");
     return 0;
 }
-

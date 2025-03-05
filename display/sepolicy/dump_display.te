@@ -1,3 +1,4 @@
+# Display (dump for bugreport)
 pixel_bugreport(dump_display)
 
 allow dump_display sysfs_display:file r_file_perms;

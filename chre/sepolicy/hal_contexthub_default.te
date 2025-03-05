@@ -35,3 +35,6 @@ allow hal_contexthub_default self:global_capability2_class_set block_suspend;
 
 # Allow binder calls with clients
 binder_call(hal_contexthub_default, hal_sensors_default)
+
+# Allow access for AoC properties.
+get_prop(hal_contexthub_default, vendor_aoc_prop)

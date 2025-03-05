@@ -16,15 +16,15 @@
 #include <dump/pixel_dump.h>
 #include <android-base/file.h>
 
-
 int main() {
     setbuf(stdout, NULL);
     dumpFileContent("DECON-0 counters /sys/class/drm/card0/device/decon0/counters", "/sys/class/drm/card0/device/decon0/counters");
     dumpFileContent("CRTC-0 event log", "/sys/kernel/debug/dri/0/crtc-0/event");
     runCommand("libdisplaycolor", "/vendor/bin/dumpsys displaycolor -v");
-    dumpFileContent("Primary panel name", "/sys/devices/platform/exynos-drm/primary-panel/panel_name");
-    dumpFileContent("Primary panel extra info", "/sys/devices/platform/exynos-drm/primary-panel/panel_extinfo");
-    dumpFileContent("Primary panel power Vreg", "/sys/devices/platform/exynos-drm/primary-panel/panel_pwr_vreg");
-    dumpFileContent("Primary panel power mode register", "/sys/devices/platform/exynos-drm/primary-panel/power_mode");
+
+    dumpFileContent("Primary panel name", "/sys/class/drm/card0/device/primary-panel/panel_name");
+    dumpFileContent("Primary panel extra info", "/sys/class/drm/card0/device/primary-panel/panel_extinfo");
+    dumpFileContent("Primary panel power Vreg", "/sys/class/drm/card0/device/primary-panel/panel_pwr_vreg");
+    dumpFileContent("Primary panel power mode register", "/sys/class/drm/card0/device/primary-panel/power_mode");
     return 0;
 }

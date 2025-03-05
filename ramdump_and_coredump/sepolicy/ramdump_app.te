@@ -1,7 +1,11 @@
+# SEpolicy for com.android.ramdump
 type ramdump_app, domain;
 
 userdebug_or_eng(`
   app_domain(ramdump_app)
+
+  # For using Firebase Cloud Firestore
+  net_domain(ramdump_app)
 
   allow ramdump_app app_api_service:service_manager find;
 

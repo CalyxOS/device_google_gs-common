@@ -15,6 +15,7 @@ allow hal_audio_default amcs_device:chr_file rw_file_perms;
 allow hal_audio_default sysfs_pixelstats:file rw_file_perms;
 allow hal_audio_default sysfs_extcon:dir search;
 allow hal_audio_default sysfs_extcon:file r_file_perms;
+allow hal_audio_default vendor_usb_debugfs:dir search;
 
 #allow access to aoc and kernel boottime
 allow hal_audio_default sysfs_aoc:dir { search };

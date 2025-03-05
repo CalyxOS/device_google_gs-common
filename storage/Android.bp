@@ -14,8 +14,15 @@ cc_binary {
     shared_libs: [
         "libbase",
         "libdump",
-	"liblog",
+        "liblog",
     ],
     vendor: true,
     relative_install_path: "dump",
+}
+
+sh_binary {
+    name: "storage_intelligence.sh",
+    src: "storage_intelligence.sh",
+    init_rc: ["storage.intelligence.rc"],
+    vendor: true,
 }

@@ -1,11 +1,11 @@
 #!/vendor/bin/sh
 
-#############################################################
-### init.insmod.cfg format:                               ###
-### ----------------------------------------------------- ###
-### [insmod|setprop|enable/moprobe|wait] [path|prop name] ###
-### ...                                                   ###
-#############################################################
+###################################################################
+### init.insmod.cfg format:                                     ###
+### ----------------------------------------------------------- ###
+### [insmod|setprop|enable|moprobe|rmmod|wait] [path|prop name] ###
+### ...                                                         ###
+###################################################################
 
 modules_dir=
 system_modules_dir=
@@ -96,6 +96,7 @@ if [ -f $cfg_file ]; then
           modprobe -a -d "${modules_dir}" $arg
         fi
         ;;
+      "rmmod") rmmod $arg ;;
       "wait") wait_for_file $arg ;;
     esac
   done < $cfg_file

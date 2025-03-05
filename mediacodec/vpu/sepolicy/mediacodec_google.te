@@ -1,3 +1,4 @@
+# Google Mediacodec
 type mediacodec_google, domain;
 type mediacodec_google_exec, exec_type, vendor_file_type, file_type;
 
@@ -8,9 +9,11 @@ hal_server_domain(mediacodec_google, hal_codec2)
 hal_client_domain(mediacodec_google, hal_graphics_allocator)
 
 add_service(mediacodec_google, eco_service)
+binder_call(mediacodec_google, hal_camera_default)
 
 allow mediacodec_google dmabuf_system_heap_device:chr_file r_file_perms;
 allow mediacodec_google video_device:chr_file { read write open ioctl map };
+allow mediacodec_google gpu_device:chr_file rw_file_perms;
 
 # mediacodec_google should never execute any executable without a domain transition
 neverallow mediacodec_google { file_type fs_type }:file execute_no_trans;

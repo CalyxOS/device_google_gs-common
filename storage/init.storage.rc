@@ -42,10 +42,13 @@ on init
 
     # UFS
     write /dev/sys/block/bootdevice/clkgate_enable 0
+    write /dev/sys/block/bootdevice/wb_on 0
+    write /dev/sys/block/bootdevice/enable_wb_buf_flush 0
 
 on property:sys.boot_completed=1
     # Health Storage HAL
     chown system system /dev/sys/block/bootdevice/manual_gc
+    write /dev/sys/block/bootdevice/manual_gc 0
 
     # Pixelstats
     chown system system /dev/sys/block/bootdevice/slowio_read_cnt

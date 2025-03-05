@@ -42,7 +42,7 @@ allow edgetpu_tachyon_server proc_version:file r_file_perms;
 
 # Allow Tachyon service to send trace packets to Perfetto with SELinux enabled
 # under userdebug builds.
-userdebug_or_eng(`perfetto_producer(edgetpu_tachyon_server)')
+perfetto_producer(edgetpu_tachyon_server)
 
 # Allow Tachyon service to read tflite DarwiNN delegate properties
 get_prop(edgetpu_tachyon_server, vendor_tflite_delegate_prop)
@@ -65,6 +65,4 @@ userdebug_or_eng(`
 ')
 
 # For shell level testing
-userdebug_or_eng(`
-    binder_call(edgetpu_tachyon_server, shell);
-')
+binder_call(edgetpu_tachyon_server, shell);
