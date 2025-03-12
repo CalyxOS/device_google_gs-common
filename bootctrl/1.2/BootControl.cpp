@@ -408,6 +408,7 @@ Return<void> BootControl::setActiveBootSlot(uint32_t slot, setActiveBootSlot_cb 
 }
 
 Return<void> BootControl::setSlotAsUnbootable(uint32_t slot, setSlotAsUnbootable_cb _hidl_cb) {
+#if 0
     if (slot >= 2) {
         _hidl_cb({false, "Invalid slot"});
         return Void();
@@ -437,6 +438,7 @@ Return<void> BootControl::setSlotAsUnbootable(uint32_t slot, setSlotAsUnbootable
     }
 
     _hidl_cb({true, ""});
+#endif
     return Void();
 }
 
@@ -454,7 +456,7 @@ Return<::android::hardware::boot::V1_0::BoolResult> BootControl::isSlotBootable(
         unbootable = isSlotFlagSet(slot, AB_ATTR_UNBOOTABLE);
     }
 
-    return unbootable ? BoolResult::FALSE : BoolResult::TRUE;
+    return BoolResult::TRUE;
 }
 
 Return<::android::hardware::boot::V1_0::BoolResult> BootControl::isSlotMarkedSuccessful(
