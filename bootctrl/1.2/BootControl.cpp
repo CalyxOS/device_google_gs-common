@@ -255,6 +255,7 @@ static bool blowAR_gs101() {
 }
 
 static bool blowAR() {
+#if 0
     const auto& platform = ::android::base::GetProperty("ro.boot.hardware.platform", "");
 
     if (platform == "gs101") {
@@ -262,6 +263,7 @@ static bool blowAR() {
     } else if (platform == "gs201" || platform == "zuma" || platform == "zumapro") {
         return blowAR_zuma();
     }
+#endif
 
     return false;
 }
