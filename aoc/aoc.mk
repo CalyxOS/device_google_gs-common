@@ -4,12 +4,6 @@ PRODUCT_PACKAGES += dump_aoc \
 		    aocd \
 		    aocxd
 
-ifeq (,$(filter aosp_% calyx_%,$(TARGET_PRODUCT)))
-# IAudioMetricExt HIDL
-PRODUCT_PACKAGES += \
-    vendor.google.audiometricext@1.0-service-vendor
-endif
-
 # If AoC Daemon is not present on this build, load firmware at boot via rc
 PRODUCT_COPY_FILES += \
 	device/google/gs-common/aoc/conf/init.aoc.daemon.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.aoc.rc
