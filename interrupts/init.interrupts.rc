@@ -1,7 +1,8 @@
 on init
-    # Create the directory for the trace instance during early init
-    chmod 666 /sys/kernel/tracing/instances/irq_gia_google
-    chmod 666 /sys/kernel/tracing/instances/irq_gia_google/trace
+    # With permissions 666, trace was not captured in the bugreport.
+    # Apply relaxed permissions.
+    chmod 777 /sys/kernel/tracing/instances/irq_gia_google
+    chmod 777 /sys/kernel/tracing/instances/irq_gia_google/trace
     chown system system /sys/kernel/tracing/instances/irq_gia_google
     chown system system /sys/kernel/tracing/instances/irq_gia_google/trace
 
@@ -13,4 +14,9 @@ on init
     # Keep the buffer size small. This size is practically enough for debug purpose.
     # Having low size helps because this entire buffer gets dumped in bugreport.
     # Having a large size can impact bugreport size and time it takes to pack/unpack.
-    write /sys/kernel/tracing/instances/irq_gia_google/buffer_size_kb 64
+    write /sys/kernel/tracing/instances/irq_gia_google/buffer_size_kb 16
+
+    # Reduce some GIA events from interrupt handler
+    write /sys/kernel/tracing/instances/irq_gia_google/events/irq_gia/gia_get_power/enable 0
+    write /sys/kernel/tracing/instances/irq_gia_google/events/irq_gia/gia_put_power/enable 0
+    write /sys/kernel/tracing/instances/irq_gia_google/events/irq_gia/gia_irq_eoi/enable 0

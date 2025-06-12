@@ -52,10 +52,10 @@ if [ $# -eq 1 ]; then
 else
   # Set property even if there is no insmod config
   # to unblock early-boot trigger
-  setprop vendor.common.modules.ready
-  setprop vendor.device.modules.ready
-  setprop vendor.all.modules.ready
-  setprop vendor.all.devices.ready
+  setprop vendor.common.modules.ready 1
+  setprop vendor.device.modules.ready 1
+  setprop vendor.all.modules.ready 1
+  setprop vendor.all.devices.ready 1
   exit 1
 fi
 

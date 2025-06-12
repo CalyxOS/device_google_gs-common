@@ -3,3 +3,9 @@ se_flags {
     flags: ["RELEASE_USB_UDC_SYSFS_SELINUX_POLICY_ENABLED"],
     export_to: ["all_selinux_flags"],
 }
+
+se_flags {
+    name: "pixel_selinux_flags",
+    flags: ["RELEASE_PIXEL_MALI_SEPOLICY_ENABLED"],
+    export_to: ["all_selinux_flags"],
+}

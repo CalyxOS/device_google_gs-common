@@ -8,3 +8,4 @@ service insmod_sh /vendor/bin/insmod.sh /vendor/etc/init.common.cfg
     group root system
     disabled
     oneshot
+    file /dev/kmsg w

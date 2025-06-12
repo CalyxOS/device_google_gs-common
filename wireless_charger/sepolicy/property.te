@@ -1,1 +1,2 @@
-vendor_internal_prop(vendor_wlcservice_test_prop)
+# wlcservice property
+vendor_internal_prop(vendor_wlcservice_prop)

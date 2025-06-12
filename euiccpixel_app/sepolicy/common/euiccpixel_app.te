@@ -24,4 +24,4 @@ get_prop(euiccpixel_app, dck_prop)
 
 # b/265286368 framework UI rendering properties and file access
 dontaudit euiccpixel_app default_prop:file { read };
-dontaudit euiccpixel_app sysfs_gpu_uevent:file { read open getattr };
+

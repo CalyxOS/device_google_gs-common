@@ -10,8 +10,9 @@ service storage_intelligence /vendor/bin/storage_intelligence.sh
 
 on boot && property:persist.vendor.intelligence=on
     mkdir /data/vendor/intelligence 0770 vendor_intelligence vendor_intelligence
+    mount f2fs loop@/dev/block/by-name/userdata_exp.ai /data/vendor/intelligence rw
     restorecon_recursive /data/vendor/intelligence
-    mount f2fs loop@/dev/block/by-name/userdata_exp.ai /data/vendor/intelligence ro
+    mount f2fs /data/vendor/intelligence /data/vendor/intelligence remount ro
     start storage_intelligence
 
 on boot && property:persist.vendor.intelligence=off

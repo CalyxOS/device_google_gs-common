@@ -5,3 +5,4 @@ vendor.google.bluetooth_ext.IBluetoothCcc/default                            u:o
 vendor.google.bluetooth_ext.IBluetoothEwp/default                            u:object_r:hal_bluetooth_coexistence_service:s0
 vendor.google.bluetooth_ext.IBluetoothExt/default                            u:object_r:hal_bluetooth_coexistence_service:s0
 vendor.google.bluetooth_ext.IBluetoothFinder/default                         u:object_r:hal_bluetooth_coexistence_service:s0
+vendor.google.bluetooth_ext.IBluetoothCco/default                            u:object_r:hal_bluetooth_coexistence_service:s0

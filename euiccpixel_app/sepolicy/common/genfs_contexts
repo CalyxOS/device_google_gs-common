@@ -1,1 +1,0 @@
-genfscon sysfs /devices/platform/34f00000.gpu0/uevent                 u:object_r:sysfs_gpu_uevent:s0

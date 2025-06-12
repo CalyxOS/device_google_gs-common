@@ -1,8 +1,6 @@
 #!/vendor/bin/sh
 #
-# The script belongs to the feature of UFS FFU via OTA: go/p23-ffu-ota
-# Its purpose is to copy the corresponding firmware into partition for UFS FFU.
-
+# The script belongs to the feature of AI preload feature, go/gemini-package
 
 property="persist.vendor.intelligence"
 partition="/dev/block/by-name/userdata_exp.ai"

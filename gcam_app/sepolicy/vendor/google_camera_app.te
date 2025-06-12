@@ -11,3 +11,5 @@ allow google_camera_app edgetpu_device:chr_file { read write ioctl };
 # Allows GCA to access the hw_jpeg /dev/video12.
 #allow google_camera_app hw_jpg_device:chr_file rw_file_perms;
 
+# Allows tachyon service to communicate with google_camera_app via binder.
+binder_call(edgetpu_tachyon_server, google_camera_app);

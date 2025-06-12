@@ -4,6 +4,10 @@ DIR=/data/vendor/dump_touch
 SCRIPT_DIR=/vendor/bin/dump_touch
 LOCKFILE="$DIR"/dumping
 LOGFILE="$DIR"/dump.log
+DEBUG_START_TIME="$DIR"/start
+DEBUG_END_TIME="$DIR"/end
+
+date +%s%N > $DEBUG_START_TIME
 
 if [ ! -f $LOCKFILE ]
 then
@@ -41,4 +45,4 @@ fi
 
 echo 2 > $LOCKFILE
 
-
+date +%s%N > $DEBUG_END_TIME

@@ -1,0 +1,4 @@
+# NFC
+vendor_internal_prop(vendor_nfc_prop)
+vendor_restricted_prop(vendor_nfc_antenna_prop)
+

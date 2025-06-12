@@ -58,6 +58,7 @@ PRODUCT_PACKAGES += libg3a_standalone_ghawb_rc
 
 # Vendor APEX which contains the camera HAL
 PRODUCT_PACKAGES += com.google.pixel.camera.hal
+PRODUCT_PACKAGES += venodr-apex-allowlist-lyric.xml
 PRODUCT_PACKAGES += init.camera.set-interrupts-ownership
 PRODUCT_PACKAGES += lyric_preview_dis_xml
 

@@ -27,7 +27,6 @@
 
 #define F2FS_FSCK_TIME_PROPERTY "ro.boottime.init.fsck.data"
 #define F2FS_MNT_TIME_PROPERTY "ro.boottime.init.mount.data"
-#define BOOTDEVICE_PROPERTY "ro.boot.bootdevice"
 #define BUILD_TYPE_PROPERTY "ro.build.type"
 
 void read_buffer(int buf_id, int total_len, const char* path)
@@ -68,10 +67,30 @@ int main() {
     int mnt_time = android::base::GetIntProperty(F2FS_MNT_TIME_PROPERTY, 0);
     printf("--- F2FS - checkpoint=disable time (ms) ---\n%d\n\n", mnt_time);
 
+    const std::string f2fs_proc_path("/proc/fs/f2fs/");
+    std::unique_ptr<DIR, decltype(&closedir)> procdir(
+        opendir(f2fs_proc_path.c_str()), closedir);
+    if (procdir) {
+      dirent *proc_entry;
+      while ((proc_entry = readdir(procdir.get())) != nullptr) {
+        std::string proc_name(proc_entry->d_name);
+        if (proc_name == "." || proc_name == ".." ||
+            strncmp(proc_name.c_str(), "dm-", 3))
+          continue;
+        dumpFileContent(("F2FS - " + proc_name).c_str(),
+                        (f2fs_proc_path + proc_name + "/disk_map").c_str());
+      }
+    }
+
     //UFS
     dumpFileContent("UFS model", "/sys/block/sda/device/model");
     dumpFileContent("UFS rev", "/sys/block/sda/device/rev");
     dumpFileContent("UFS size", "/sys/block/sda/size");
+
+    dumpFileContent("UFS phy version",
+                    "/dev/sys/block/bootdevice/pixel/phy_version");
+    dumpFileContent("UFS phy release_date",
+                    "/dev/sys/block/bootdevice/pixel/phy_release_date");
 
     dumpFileContent("UFS Slow IO Read",
                     "/dev/sys/block/bootdevice/slowio_read_cnt");
@@ -90,24 +109,10 @@ int main() {
     if (statdir) {
         dirent *stat_entry;
         while ((stat_entry = readdir(statdir.get())) != nullptr) {
-            std::string ufs_err_stats_path(stat_entry->d_name);
-            if (!strcmp(ufs_err_stats_path.c_str(), ".")
-                    || !strcmp(ufs_err_stats_path.c_str(), ".."))
-                continue;
-            std::string bootdevice = android::base::GetProperty(
-                    BOOTDEVICE_PROPERTY, "");
-            std::string err_stat_path = "/sys/devices/platform/";
-            err_stat_path.append(bootdevice.c_str());
-            err_stat_path.append("/err_stats/");
-            err_stat_path.append(ufs_err_stats_path.c_str());
-            std::ifstream err_stat_file(err_stat_path);
-            if (err_stat_file.is_open()) {
-                std::string err_stat_atom;
-                err_stat_file >> err_stat_atom;
-                printf("%s:%s\n", ufs_err_stats_path.c_str(),
-                       err_stat_atom.c_str());
-                err_stat_file.close();
-            }
+          std::string stat_name(stat_entry->d_name);
+          if (stat_name == "." || stat_name == "..") continue;
+          dumpFileContent(stat_name.c_str(),
+                          (ufs_err_stats_path + stat_name).c_str());
         }
     }
 

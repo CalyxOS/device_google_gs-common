@@ -58,3 +58,11 @@ prebuilt_etc {
     init_rc: ["libg3a_ghawb.rc"],
     src: "libg3a_ghawb.rc",
 }
+
+prebuilt_etc {
+    name: "vendor-apex-allowlist-lyric.xml",
+    src: "vendor-apex-allowlist-lyric.xml",
+    vendor: true,
+    sub_dir: "sysconfig",
+    filename_from_src: true,
+}

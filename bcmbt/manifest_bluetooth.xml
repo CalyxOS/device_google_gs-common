@@ -16,12 +16,13 @@
     </hal>
     <hal format="aidl">
         <name>vendor.google.bluetooth_ext</name>
-        <version>1</version>
+        <version>3</version>
         <fqname>IBTChannelAvoidance/default</fqname>
         <fqname>IBluetoothCcc/default</fqname>
         <fqname>IBluetoothEwp/default</fqname>
         <fqname>IBluetoothExt/default</fqname>
         <fqname>IBluetoothFinder/default</fqname>
         <fqname>IBluetoothSar/default</fqname>
+        <fqname>IBluetoothCco/default</fqname>
     </hal>
 </manifest>

@@ -1,3 +1,10 @@
+# allow power hal to access pa kill knobs
 allow hal_power_default sysfs_pakills:file rw_file_perms;
 allow hal_power_default sysfs_pakills:dir r_dir_perms;
 r_dir_file(hal_power_default, sysfs_vendor_mm);
+
+# allow power hal to access vendor_mm knobs
+allow hal_power_default sysfs_vendor_mm:file rw_file_perms;
+
+# Allow set display early wake up
+allow hal_power_default sysfs_display:file rw_file_perms;

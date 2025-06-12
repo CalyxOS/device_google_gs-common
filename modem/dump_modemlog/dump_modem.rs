@@ -5,6 +5,7 @@
 use std::fs;
 
 const MODEM_STAT: &str = "/data/vendor/modem_stat/debug.txt";
+const MODEM_UART: &str = "/data/vendor/radio/modem_uart_logs.txt";
 const SSRDUMP_DIR: &str = "/data/vendor/ssrdump";
 const RFSD_ERR_LOG_DIR: &str = "/data/vendor/log/rfsd";
 const WAKEUP_EVENTS: &str = "/sys/devices/platform/cpif/wakeup_events";
@@ -64,6 +65,13 @@ fn modem_stat() {
     println!();
 }
 
+// Capture modem uart log if it exists
+fn modem_uart() {
+    println!("------ Modem UART ------");
+    print_file_and_handle_error(MODEM_UART);
+    println!();
+}
+
 // Capture crash signatures from all modem crashes
 fn modem_ssr_history() {
     println!("------ Modem SSR history ------");
@@ -101,6 +109,7 @@ fn pcie_event_stats() {
 
 fn main() {
     modem_stat();
+    modem_uart();
     modem_ssr_history();
     rfsd_error_log();
     wakeup_events();
