@@ -6,7 +6,7 @@ on init
     write /dev/blkio/blkio.prio.class none-to-rt
     write /dev/blkio/blkio.prio.class promote-to-rt
 
-on property:ro.build.type=userdebug
+on property:ro.build.type=eng
     write /dev/sys/block/bootdevice/pixel/enable_pixel_ufs_logging 1
     chown system /dev/sg3
 
