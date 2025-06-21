@@ -30,4 +30,5 @@ allow hal_aidl_radio_ext sysfs_leds:dir search;
 allow hal_aidl_radio_ext sysfs_leds:file rw_file_perms;
 
 # legacy/zuma/vendor
+allow hal_aidl_radio_ext sysfs_display:dir search;
 allow hal_aidl_radio_ext sysfs_display:file rw_file_perms;

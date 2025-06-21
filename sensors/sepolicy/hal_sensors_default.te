@@ -68,6 +68,9 @@ get_prop(hal_sensors_default, vendor_chre_hal_prop)
 binder_call(hal_sensors_default, hal_contexthub_default)
 allow hal_sensors_default hal_contexthub_service:service_manager find;
 
+# Allow access to audio HAL.
+binder_call(hal_sensors_default, hal_audio_default)
+allow hal_sensors_default hal_audio_ext_service:service_manager find;
 
 # Allow access to the power supply files for MagCC.
 r_dir_file(hal_sensors_default, sysfs_batteryinfo)
