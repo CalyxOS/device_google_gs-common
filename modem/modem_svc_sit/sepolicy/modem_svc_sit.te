@@ -1,2 +1,3 @@
 # Modem SVC will register the default instance of the AIDL ISharedModemPlatform hal.
 hal_server_domain(modem_svc_sit, hal_shared_modem_platform)
+binder_call(hal_shared_modem_platform_server, hal_shared_modem_platform_client)

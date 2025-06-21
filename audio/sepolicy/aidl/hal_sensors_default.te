@@ -1,0 +1,3 @@
+# Allow access to audio HAL.
+binder_call(hal_sensors_default, hal_audio_default)
+allow hal_sensors_default hal_audio_ext_service:service_manager find;
